@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "groupName": {
+            "type": "string",
+            "metadata": { "description": "Resource Group name" }
+        },
+        "location": {
+            "type": "string",
+            "allowedValues": ["UKSouth", "UKWest"],
+            "defaultValue": "UKSouth",
+            "metadata": { "description": "Target Azure data centre location for created resources" }
+        }
+    },
+    "functions": [],
+    "variables": {
+    },
+    "resources": [
+        {
+            "name": "[parameters('groupName')]",
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2020-06-01",
+            "location": "[parameters('location')]",
+            "tags": {},
+            "properties": {
+            }
+        }
+    ],
+    "outputs": {
+        "resourceGroupName": {
+            "type": "string",
+            "value": "[parameters('groupName')]"
+        }
+    }
+}
