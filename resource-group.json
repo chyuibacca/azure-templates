@@ -4,13 +4,18 @@
     "parameters": {
         "groupName": {
             "type": "string",
-            "metadata": { "description": "Resource Group name" }
+            "metadata": { "description": "Name of the Resource Group" }
         },
         "location": {
             "type": "string",
             "allowedValues": ["UKSouth", "UKWest"],
             "defaultValue": "UKSouth",
-            "metadata": { "description": "Target Azure data centre location for created resources" }
+            "metadata": { "description": "Target Azure data centre location for created resource(s)" }
+        },
+        "tags": {
+            "type": "object",
+            "metadata": { "description": "Tags to be applied to the resource(s)" },
+            "defaultValue": {}
         }
     },
     "functions": [],
@@ -22,9 +27,8 @@
             "type": "Microsoft.Resources/resourceGroups",
             "apiVersion": "2020-06-01",
             "location": "[parameters('location')]",
-            "tags": {},
-            "properties": {
-            }
+            "tags": "[parameters('tags')]",
+            "properties": {}
         }
     ],
     "outputs": {
