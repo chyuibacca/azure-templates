@@ -36,7 +36,7 @@
             "apiVersion": "2019-06-01",
             "kind": "StorageV2",
             "sku": { "name": "Standard_LRS" },
-            "location": "[variables('location')]",
+            "location": "ukwest",
             "tags": "[parameters('tags')]",
             "properties": {
                 "supportsHttpsTrafficOnly": true,
